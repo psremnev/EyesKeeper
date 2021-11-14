@@ -57,7 +57,7 @@ class KeeperService: Service() {
             }
         }
     }
-
+    /** Инициализировать данные по статусу таймера */
     private fun initObservableForTimer() {
         TimerState.getTimerSubject().subscribeOn(Schedulers.newThread())
             .subscribe(object: DisposableObserver<Constants.Timer>() {
