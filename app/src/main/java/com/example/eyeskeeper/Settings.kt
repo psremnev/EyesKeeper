@@ -113,6 +113,7 @@ open class Settings : DialogFragment() {
 
     private fun initVibrateBtn() {
         val vibrBtn:Switch? = view?.findViewById(R.id.vibrateBtn)
+        vibrBtn?.isChecked = settings?.vibrate == true
         vibrBtn?.setOnClickListener {
             val isChecked: Boolean = vibrBtn?.isChecked as Boolean
             dataHelper?.saveSettings(null, null, null, isChecked)
