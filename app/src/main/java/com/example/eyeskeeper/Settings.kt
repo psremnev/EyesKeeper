@@ -34,6 +34,7 @@ open class Settings : DialogFragment() {
         initPeriodSelector()
         initPeriodTimeSelector()
         initCharacterSelector()
+        initVibrateBtn()
 
         val closeBtn: Button? = view?.findViewById(R.id.closeSettings)
         closeBtn?.setOnClickListener {
