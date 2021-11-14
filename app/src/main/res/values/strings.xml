@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Eyes Keeper</string>
+    <string name="Enable_Keeper">Включить / Отключить Keeper</string>
+    <string name="period">Перерыв, каждые</string>
+    <string name="breakTime">Время перерыва</string>
+    <string name="keeperInfo">Этот сервис будет работать в фоновом режиме. Вы можете закрыть приложение. Чтобы отсановить работу сервиса, выключите его</string>
+    <string name="skipDialog">Пропустить</string>
+    <string name="min">минут</string>
+    <string name="blink">Моргайте глазами</string>
+    <string name="circle_bacward">Двигайте глазами против часовой стрелки</string>
+    <string name="circle_forward">Двигайте глазами по часовой стрелки</string>
+    <string name="diagonal">Двигайте глазами по диагонали</string>
+    <string name="left_right">Двигайте глазами влево/вправо</string>
+    <string name="up_down">Двигайте глазами вверх/вниз</string>
+    <string name="vibrate">Вибрировать при смене упражнения</string>
+    <integer name="maxTimeLength">2</integer>
+</resources>

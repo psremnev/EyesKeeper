@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Pavel/.gradle/caches/transforms-3/1f32e1a2627ee7417c8e63fffba2f220/transformed/appcompat-1.3.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.346875" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/drawable/cat.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/drawable/rounded_edittext.xml" value="0.17314814814814813" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/drawable/rounded_message.xml" value="0.1" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/layout/activity_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/layout/character_item.xml" value="0.3625" />
+        <entry key="..\:/Users/Pavel/AndroidStudioProjects/EyesKeeper/app/src/main/res/layout/settings_fragment.xml" value="0.337696335078534" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
