@@ -22,7 +22,7 @@ open class Settings : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.settings_fragment, container, false)
+        return inflater.inflate(R.layout.settings, container, false)
     }
 
     override fun onStart() {

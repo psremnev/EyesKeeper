@@ -1,6 +1,5 @@
 package com.example.eyeskeeper
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Button
 import android.widget.TextView
@@ -18,7 +17,7 @@ class Dialog : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dialog)
+        setContentView(R.layout.dialog)
 
         settings = DataHelper(applicationContext).getSettings()
     }
