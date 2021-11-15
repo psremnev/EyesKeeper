@@ -1,12 +1,10 @@
 package com.example.eyeskeeper
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -14,7 +12,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.CheckBox
-import kotlinx.coroutines.newSingleThreadContext
+import androidx.appcompat.widget.SwitchCompat
 
 open class Settings : DialogFragment() {
     private var settings: Constants.SettingsData? = null
@@ -113,10 +111,10 @@ open class Settings : DialogFragment() {
     }
 
     private fun initVibrateBtn() {
-        val vibrBtn:Switch? = view?.findViewById(R.id.vibrateBtn)
-        vibrBtn?.isChecked = settings?.vibrate == true
-        vibrBtn?.setOnClickListener {
-            val isChecked: Boolean = vibrBtn?.isChecked as Boolean
+        val vibrateBtn: SwitchCompat? = view?.findViewById(R.id.vibrateBtn)
+        vibrateBtn?.isChecked = settings?.vibrate == true
+        vibrateBtn?.setOnClickListener {
+            val isChecked: Boolean = vibrateBtn?.isChecked as Boolean
             dataHelper?.saveSettings(null, null, null, isChecked)
         }
     }

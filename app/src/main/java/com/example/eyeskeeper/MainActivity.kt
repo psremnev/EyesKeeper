@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 
 class MainActivity : AppCompatActivity() {
     var serviceIsRun: Boolean? = null
-    var enableBtn: Switch? = null
+    var enableBtn: SwitchCompat? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
