@@ -97,6 +97,11 @@ open class Settings : DialogFragment() {
                 override var isChecked = false
                 override val checkBoxText: String = Constants.CHARACTER_TYPE.CAT.value
                 override val characterType = Constants.CHARACTER_IMAGE_ID.CAT.value
+            },
+            object: Constants.Character {
+                override var isChecked = false
+                override val checkBoxText: String = Constants.CHARACTER_TYPE.PANDA.value
+                override val characterType = Constants.CHARACTER_IMAGE_ID.PANDA.value
             })
         val characterPos: Int? = settings?.character
         if (characterPos is Int && characterPos <= data.size - 1) {

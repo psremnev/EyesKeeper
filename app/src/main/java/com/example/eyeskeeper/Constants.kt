@@ -7,7 +7,10 @@ object Constants {
     val VIBRATE: String = "vibrate"
     val DEFAULT_PERIOD: Int = 15;
     val DEFAULT_PERIOD_TIME: Int = 1;
-    val CHARACTER_TYPE_MAP = mapOf<String, Int>(CHARACTER_TYPE.CLASSIC.value to 0, CHARACTER_TYPE.CAT.value to 1)
+    val CHARACTER_TYPE_MAP = mapOf<String, Int>(
+        CHARACTER_TYPE.CLASSIC.value to 0,
+        CHARACTER_TYPE.CAT.value to 1,
+        CHARACTER_TYPE.PANDA.value to 2)
     val DIALOG_MESSAGE_MAP = mapOf<Int, Int>(
         1 to R.string.blink,
         2 to R.string.circle_bacward,
@@ -27,13 +30,15 @@ object Constants {
    }
 
     enum class CHARACTER_TYPE(val value: String) {
-        CLASSIC("classic"),
-        CAT("cat")
+        CLASSIC("Classic"),
+        CAT("Cat"),
+        PANDA("Panda")
     }
 
     enum class CHARACTER_IMAGE_ID(val value: Int) {
         CLASSIC(R.drawable.classic),
-        CAT(R.drawable.cat)
+        CAT(R.drawable.cat),
+        PANDA(R.drawable.panda)
     }
 
     interface Timer {
