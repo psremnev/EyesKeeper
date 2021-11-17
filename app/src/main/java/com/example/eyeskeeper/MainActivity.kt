@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         enableBtn = findViewById(R.id.enableSwitcher)
         serviceIsRun = isMyServiceRunning(KeeperService::class.java)
         enableBtn?.isChecked = serviceIsRun!!
-        val settingsBtn: Button = findViewById(R.id.settingsBtn)
         val animAlpha: Animation = AnimationUtils.loadAnimation(this, R.anim.alpha);
         enableBtn?.setOnClickListener {
             val isChecked: Boolean = enableBtn?.isChecked as Boolean
@@ -32,11 +31,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val settingsBtn: Button = findViewById(R.id.settingsBtn)
         settingsBtn.setOnClickListener {
             it.startAnimation(animAlpha);
             val frg: DialogFragment = Settings();
             frg.setStyle(STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
             frg.show(supportFragmentManager, "settings")
+        }
+
+        val aboutBtn: Button = findViewById(R.id.aboutBtn)
+        aboutBtn.setOnClickListener {
+            val frg: DialogFragment = About();
+            frg.setStyle(STYLE_NORMAL, android.R.style.Theme_Material_Dialog_NoActionBar)
+            frg.show(supportFragmentManager, "about")
         }
     }
 

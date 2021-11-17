@@ -14,4 +14,6 @@
     <string name="vibrate">Vibrate when changing exercise</string>
     <string name="sound">Sound when changing exercise</string>
     <string name="min">min</string>
+    <string name="about">About the program</string>
+    <string name="aboutText">With this program, you can control the time spent in front of the screen of your mobile device and give your eyes a rest</string>
 </resources>

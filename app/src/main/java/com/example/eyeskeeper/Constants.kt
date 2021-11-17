@@ -9,8 +9,8 @@ object Constants {
     const val CHARACTER: String = "character"
     const val VIBRATE: String = "vibrate"
     const val SOUND: String = "sound"
-    const val DEFAULT_PERIOD: Int = 15;
-    const val DEFAULT_PERIOD_TIME: Int = 1;
+    const val DEFAULT_PERIOD: Int = 15
+    const val DEFAULT_PERIOD_TIME: Int = 1
     val CHARACTER_TYPE_MAP = mapOf<String, Int>(
         CharacterType.CLASSIC.value to 0,
         CharacterType.CAT.value to 1,
