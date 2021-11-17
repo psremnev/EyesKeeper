@@ -53,7 +53,7 @@
         <LinearLayout
             android:id="@+id/period_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
@@ -74,7 +74,7 @@
             <EditText
                 android:id="@+id/periodMin"
                 android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_height="48dp"
                 android:layout_marginLeft="6dp"
                 android:layout_marginRight="6dp"
                 android:background="@drawable/rounded_edittext"
@@ -96,7 +96,7 @@
         <LinearLayout
             android:id="@+id/breakTime_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
@@ -120,7 +120,7 @@
             <EditText
                 android:id="@+id/periodTimeMin"
                 android:layout_width="60dp"
-                android:layout_height="match_parent"
+                android:layout_height="48dp"
                 android:layout_marginLeft="6dp"
                 android:layout_marginRight="6dp"
                 android:background="@drawable/rounded_edittext"
@@ -158,6 +158,32 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/vibrateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/soundLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/soundText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/sound"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/soundBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

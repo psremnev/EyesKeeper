@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class DataHelper (baseContext: Context) {
     private val settingsPreferences: SharedPreferences = baseContext.getSharedPreferences(Companion.PREFERENCES_FILE_NAME, AppCompatActivity.MODE_PRIVATE)
-    val defaultCharacter: Int = Constants.CHARACTER_TYPE_MAP[Constants.CHARACTER_TYPE.CLASSIC.value]!!
+    val defaultCharacter: Int = Constants.CHARACTER_TYPE_MAP[Constants.CharacterType.CLASSIC.value]!!
 
     private fun initSettings() {
         val preferenceEditor: SharedPreferences.Editor = settingsPreferences.edit()
@@ -14,6 +14,7 @@ class DataHelper (baseContext: Context) {
         preferenceEditor.putInt(Constants.PERIOD_TIME, Constants.DEFAULT_PERIOD_TIME)
         preferenceEditor.putInt(Constants.CHARACTER, defaultCharacter)
         preferenceEditor.putBoolean(Constants.VIBRATE, false)
+        preferenceEditor.putBoolean(Constants.SOUND, false)
         preferenceEditor.commit()
     }
 
@@ -26,6 +27,8 @@ class DataHelper (baseContext: Context) {
             settingsPreferences.getInt(Constants.CHARACTER, defaultCharacter)
         val vibrate: Boolean =
             settingsPreferences.getBoolean(Constants.VIBRATE, false)
+        val sound: Boolean =
+            settingsPreferences.getBoolean(Constants.SOUND, false)
         if (period === 0 || periodTime === 0) {
             initSettings()
             return object: Constants.SettingsData  {
@@ -33,6 +36,7 @@ class DataHelper (baseContext: Context) {
                 override val periodTime: Int = Constants.DEFAULT_PERIOD_TIME
                 override val character: Int = defaultCharacter
                 override val vibrate: Boolean = false
+                override val sound: Boolean = false
             }
         } else {
             return object: Constants.SettingsData  {
@@ -40,23 +44,27 @@ class DataHelper (baseContext: Context) {
                 override val periodTime: Int = periodTime
                 override val character: Int = character
                 override val vibrate: Boolean = vibrate
+                override val sound: Boolean = sound
             }
         }
     }
 
-    fun saveSettings(period: Int?, periodTime: Int?, characterType: Int?, vibrate: Boolean?) {
+    fun saveSettings(params: Constants.SettingsData) {
         val editor: SharedPreferences.Editor = settingsPreferences.edit()
-        if (period !== null) {
-            editor.putInt(Constants.PERIOD, period)
+        if (params.period !== null) {
+            editor.putInt(Constants.PERIOD, params.period!!)
         }
-        if (periodTime !== null) {
-            editor.putInt(Constants.PERIOD_TIME, periodTime)
+        if (params.periodTime !== null) {
+            editor.putInt(Constants.PERIOD_TIME, params.periodTime!!)
         }
-        if (characterType !== null) {
-            editor.putInt(Constants.CHARACTER, characterType)
+        if (params.character !== null) {
+            editor.putInt(Constants.CHARACTER, params.character!!)
         }
-        if (vibrate !== null) {
-            editor.putBoolean(Constants.VIBRATE, vibrate)
+        if (params.vibrate !== null) {
+            editor.putBoolean(Constants.VIBRATE, params.vibrate!!)
+        }
+        if (params.sound !== null) {
+            editor.putBoolean(Constants.SOUND, params.sound!!)
         }
         editor.commit()
     }

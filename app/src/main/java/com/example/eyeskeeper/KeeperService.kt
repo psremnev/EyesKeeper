@@ -59,9 +59,9 @@ class KeeperService: Service() {
     }
     /** Инициализировать данные по статусу таймера */
     private fun initObservableForTimer() {
-        TimerState.getTimerSubject().subscribeOn(Schedulers.newThread())
-            .subscribe(object: DisposableObserver<Constants.Timer>() {
-                override fun onNext(t: Constants.Timer) {
+        Constants.subject.subscribeOn(Schedulers.newThread())
+            .subscribe(object: DisposableObserver<Constants.Observable>() {
+                override fun onNext(t: Constants.Observable) {
                     if (t.timerRestart) {
                         restartTimer()
                     }

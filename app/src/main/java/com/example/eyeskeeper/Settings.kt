@@ -33,6 +33,7 @@ open class Settings : DialogFragment() {
         initPeriodTimeSelector()
         initCharacterSelector()
         initVibrateBtn()
+        initSoundBtn()
 
         val closeBtn: Button? = view?.findViewById(R.id.closeSettings)
         closeBtn?.setOnClickListener {
@@ -57,7 +58,9 @@ open class Settings : DialogFragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().length !== 0) {
-                    dataHelper?.saveSettings(s.toString().toInt(), null, null, null)
+                    dataHelper?.saveSettings(object: Constants.SettingsData {
+                        override val period = s.toString().toInt()
+                    })
                 }
             }
         })
@@ -78,7 +81,9 @@ open class Settings : DialogFragment() {
             }
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().length !== 0) {
-                    dataHelper?.saveSettings(null, s.toString().toInt(), null, null)
+                    dataHelper?.saveSettings(object: Constants.SettingsData {
+                        override val periodTime = s.toString().toInt()
+                    })
                 }
             }
         })
@@ -90,24 +95,24 @@ open class Settings : DialogFragment() {
         val data: ArrayList<Constants.Character> = arrayListOf(
             object: Constants.Character {
                 override var isChecked = false
-                override val checkBoxText: String = Constants.CHARACTER_TYPE.CLASSIC.value
-                override val characterType = Constants.CHARACTER_IMAGE_ID.CLASSIC.value
+                override val checkBoxText: String = Constants.CharacterType.CLASSIC.value
+                override val characterType = Constants.CharacterImageId.CLASSIC.value
             },
             object: Constants.Character {
                 override var isChecked = false
-                override val checkBoxText: String = Constants.CHARACTER_TYPE.CAT.value
-                override val characterType = Constants.CHARACTER_IMAGE_ID.CAT.value
+                override val checkBoxText: String = Constants.CharacterType.CAT.value
+                override val characterType = Constants.CharacterImageId.CAT.value
             },
             object: Constants.Character {
                 override var isChecked = false
-                override val checkBoxText: String = Constants.CHARACTER_TYPE.PANDA.value
-                override val characterType = Constants.CHARACTER_IMAGE_ID.PANDA.value
+                override val checkBoxText: String = Constants.CharacterType.PANDA.value
+                override val characterType = Constants.CharacterImageId.PANDA.value
             })
         val characterPos: Int? = settings?.character
         if (characterPos is Int && characterPos <= data.size - 1) {
             data[settings?.character!!].isChecked = true
         } else {
-            data[Constants.CHARACTER_TYPE_MAP[Constants.CHARACTER_TYPE.CLASSIC.value]!!].isChecked = true
+            data[Constants.CHARACTER_TYPE_MAP[Constants.CharacterType.CLASSIC.value]!!].isChecked = true
         }
 
         val characterList: RecyclerView? = view?.findViewById(R.id.characterList)
@@ -119,8 +124,21 @@ open class Settings : DialogFragment() {
         val vibrateBtn: SwitchCompat? = view?.findViewById(R.id.vibrateBtn)
         vibrateBtn?.isChecked = settings?.vibrate == true
         vibrateBtn?.setOnClickListener {
-            val isChecked: Boolean = vibrateBtn?.isChecked as Boolean
-            dataHelper?.saveSettings(null, null, null, isChecked)
+            val isChecked: Boolean = vibrateBtn?.isChecked
+            dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val vibrate = isChecked
+            })
+        }
+    }
+
+    private fun initSoundBtn() {
+        val soundBtn: SwitchCompat? = view?.findViewById(R.id.soundBtn)
+        soundBtn?.isChecked = settings?.sound == true
+        soundBtn?.setOnClickListener {
+            val isChecked: Boolean = soundBtn?.isChecked
+            dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val sound = isChecked
+            })
         }
     }
 }
@@ -164,7 +182,9 @@ class CharacterListAdapter(private val ctx: Context,
         holder.image?.setImageResource(characterList[position].characterType)
         holder.checkBox!!.setOnClickListener { view ->
             val checkBox = view as CheckBox
-            dataHelper?.saveSettings(null, null, Constants.CHARACTER_TYPE_MAP[checkBox.text], null)
+            dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val character = Constants.CHARACTER_TYPE_MAP[checkBox.text]
+            })
             lastCheckedInit(checkBox)
         }
     }

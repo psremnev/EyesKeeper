@@ -10,6 +10,8 @@ import android.net.Uri
 import android.os.*
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import android.media.AudioManager
+import android.media.SoundPool
 
 class Dialog : AppCompatActivity() {
     var isRestart: Boolean = false;
@@ -33,7 +35,7 @@ class Dialog : AppCompatActivity() {
     override fun onDestroy() {
         // чтобы не перезапускать если закрыт по кнопке
         if (!isRestart) {
-            TimerState.getTimerSubject().onNext(object: Constants.Timer {
+            Constants.subject.onNext(object: Constants.Observable {
                 override val timerRestart: Boolean = true
             })
         }
@@ -55,6 +57,11 @@ class Dialog : AppCompatActivity() {
         val textImage: TextView = findViewById(R.id.description)
         if (settings?.vibrate == true) {
             vibrate(100)
+        }
+        if (settings?.sound == true) {
+            val soundPool = SoundPool(1, AudioManager.STREAM_MUSIC, 0)
+            val soundShot = soundPool.load(this, R.raw.sound, 1)
+            soundPool.play(soundShot, 1F, 1F, 0, 0, 1F);
         }
         Glide.with(applicationContext)
             .asGif()
@@ -124,7 +131,7 @@ class Dialog : AppCompatActivity() {
         val hideBtn: Button = findViewById(R.id.hideBtn)
         hideBtn.setOnClickListener {
             isRestart = true
-            TimerState.getTimerSubject().onNext(object: Constants.Timer {
+            Constants.subject.onNext(object: Constants.Observable {
                 override val timerRestart: Boolean = true
             })
             finish()

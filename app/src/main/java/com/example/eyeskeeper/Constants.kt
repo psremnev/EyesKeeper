@@ -1,16 +1,20 @@
 package com.example.eyeskeeper
 
+import io.reactivex.subjects.BehaviorSubject
+
 object Constants {
-    val PERIOD: String = "period"
-    val PERIOD_TIME: String = "periodTime"
-    val CHARACTER: String = "character"
-    val VIBRATE: String = "vibrate"
-    val DEFAULT_PERIOD: Int = 15;
-    val DEFAULT_PERIOD_TIME: Int = 1;
+    val subject: BehaviorSubject<Observable> = BehaviorSubject.create()
+    const val PERIOD: String = "period"
+    const val PERIOD_TIME: String = "periodTime"
+    const val CHARACTER: String = "character"
+    const val VIBRATE: String = "vibrate"
+    const val SOUND: String = "sound"
+    const val DEFAULT_PERIOD: Int = 15;
+    const val DEFAULT_PERIOD_TIME: Int = 1;
     val CHARACTER_TYPE_MAP = mapOf<String, Int>(
-        CHARACTER_TYPE.CLASSIC.value to 0,
-        CHARACTER_TYPE.CAT.value to 1,
-        CHARACTER_TYPE.PANDA.value to 2)
+        CharacterType.CLASSIC.value to 0,
+        CharacterType.CAT.value to 1,
+        CharacterType.PANDA.value to 2)
     val DIALOG_MESSAGE_MAP = mapOf<Int, Int>(
         1 to R.string.blink,
         2 to R.string.circle_bacward,
@@ -19,7 +23,7 @@ object Constants {
         5 to R.string.left_right,
         6 to R.string.up_down,
     )
-    val millisecondInSec = 60000
+    const val millisecondInSec = 60000
 
    enum class PERIODS(val value: Int) {
         FIFTEEN(900000),
@@ -29,19 +33,19 @@ object Constants {
         TWO_HOUR(7200000)
    }
 
-    enum class CHARACTER_TYPE(val value: String) {
+    enum class CharacterType(val value: String) {
         CLASSIC("Classic"),
         CAT("Cat"),
         PANDA("Panda")
     }
 
-    enum class CHARACTER_IMAGE_ID(val value: Int) {
+    enum class CharacterImageId(val value: Int) {
         CLASSIC(R.drawable.classic),
         CAT(R.drawable.cat),
         PANDA(R.drawable.panda)
     }
 
-    interface Timer {
+    interface Observable {
         val timerRestart: Boolean
     }
 
@@ -52,9 +56,15 @@ object Constants {
     }
 
     interface SettingsData {
-        val period: Int
-        val periodTime: Int
-        val character: Int
-        val vibrate: Boolean
+        val period: Int?
+            get() = DEFAULT_PERIOD
+        val periodTime: Int?
+            get() = DEFAULT_PERIOD_TIME
+        val character: Int?
+            get() = 0
+        val vibrate: Boolean?
+            get() = false
+        val sound: Boolean?
+            get() = false
     }
 }

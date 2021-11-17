@@ -13,5 +13,6 @@
     <string name="left_right">Двигайте глазами влево/вправо</string>
     <string name="up_down">Двигайте глазами вверх/вниз</string>
     <string name="vibrate">Вибрировать при смене упражнения</string>
+    <string name="sound">Звук при смене упражнения</string>
     <integer name="maxTimeLength">2</integer>
 </resources>
