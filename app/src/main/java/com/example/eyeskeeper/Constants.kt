@@ -57,14 +57,9 @@ object Constants {
 
     interface SettingsData {
         val period: Int?
-            get() = DEFAULT_PERIOD
         val periodTime: Int?
-            get() = DEFAULT_PERIOD_TIME
         val character: Int?
-            get() = 0
         val vibrate: Boolean?
-            get() = false
         val sound: Boolean?
-            get() = false
     }
 }

@@ -60,6 +60,10 @@ open class Settings : DialogFragment() {
                 if (s.toString().length !== 0) {
                     dataHelper?.saveSettings(object: Constants.SettingsData {
                         override val period = s.toString().toInt()
+                        override val periodTime: Int? = null
+                        override val character: Int? = null
+                        override val vibrate: Boolean? = null
+                        override val sound: Boolean? = null
                     })
                 }
             }
@@ -82,7 +86,11 @@ open class Settings : DialogFragment() {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().length !== 0) {
                     dataHelper?.saveSettings(object: Constants.SettingsData {
+                        override val period: Int? = null
                         override val periodTime = s.toString().toInt()
+                        override val character: Int? = null
+                        override val vibrate: Boolean? = null
+                        override val sound: Boolean? = null
                     })
                 }
             }
@@ -126,7 +134,11 @@ open class Settings : DialogFragment() {
         vibrateBtn?.setOnClickListener {
             val isChecked: Boolean = vibrateBtn?.isChecked
             dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val period: Int? = null
+                override val periodTime: Int? = null
+                override val character: Int? = null
                 override val vibrate = isChecked
+                override val sound: Boolean? = null
             })
         }
     }
@@ -137,6 +149,10 @@ open class Settings : DialogFragment() {
         soundBtn?.setOnClickListener {
             val isChecked: Boolean = soundBtn?.isChecked
             dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val period: Int? = null
+                override val periodTime: Int? = null
+                override val character: Int? = null
+                override val vibrate = isChecked
                 override val sound = isChecked
             })
         }
@@ -183,7 +199,11 @@ class CharacterListAdapter(private val ctx: Context,
         holder.checkBox!!.setOnClickListener { view ->
             val checkBox = view as CheckBox
             dataHelper?.saveSettings(object: Constants.SettingsData {
+                override val period: Int? = null
+                override val periodTime: Int? = null
                 override val character = Constants.CHARACTER_TYPE_MAP[checkBox.text]
+                override val vibrate = isChecked
+                override val sound: Boolean? = null
             })
             lastCheckedInit(checkBox)
         }
