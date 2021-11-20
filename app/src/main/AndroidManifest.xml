@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eyeskeeper">
+    package="com.eyeskeeper">
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
     <application
@@ -11,15 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EyesKeeper">
         <activity
-            android:name=".Dialog"
+            android:name="com.eyeskeeper.Dialog"
             android:exported="true"
             android:noHistory="true"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.NotifyDialog">
         </activity>
-        <service android:name=".KeeperService"/>
+        <service android:name="com.eyeskeeper.KeeperService"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.eyeskeeper.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
