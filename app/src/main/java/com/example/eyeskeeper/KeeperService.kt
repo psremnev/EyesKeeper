@@ -45,6 +45,7 @@ class KeeperService: Service() {
         super.onDestroy()
     }
 
+    /** Получить таймер показа диалога тренировки */
     private fun getDialogTimer(): CountDownTimer {
         val period = (settings?.period!! * Constants.millisecondInSec).toLong()
         return object: CountDownTimer(5000, period) {
@@ -57,6 +58,7 @@ class KeeperService: Service() {
             }
         }
     }
+
     /** Инициализировать данные по статусу таймера */
     private fun initObservableForTimer() {
         Constants.subject.subscribeOn(Schedulers.newThread())
@@ -77,15 +79,18 @@ class KeeperService: Service() {
             })
     }
 
+    /** Перезапустить таймер */
     fun restartTimer() {
         timer?.cancel()
         timer?.start()
     }
 
+    /** Инициализировать настройки диалога */
     private fun initDialogSettings() {
         settings = DataHelper(applicationContext).getSettings()
     }
 
+    /** Старт сервиса в фоновом режиме */
     private fun startServiceForeground() {
         val notification: Notification
         val notificationManager: NotificationManager
@@ -101,12 +106,14 @@ class KeeperService: Service() {
         startForeground(1, notification)
     }
 
+    /** Получить интент диалога тренировки */
     private fun getIntentDialog(): Intent {
         val intent = Intent(applicationContext, Dialog::class.java)
         intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         return intent
     }
 
+    /** Получить подписку на блокировку экрана и ее обработка */
     private fun getScreenStateReceiver(): BroadcastReceiver {
         return object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent?) {

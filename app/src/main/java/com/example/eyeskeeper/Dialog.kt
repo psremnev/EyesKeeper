@@ -43,6 +43,9 @@ class Dialog : AppCompatActivity() {
         super.onDestroy()
     }
 
+    /** Получить Дату в нужном формате
+     * @param milliseconds {Int}
+     */
     fun getTime(milliseconds: Int): String {
         val formatter = SimpleDateFormat("mm:ss")
         val calendar: Calendar = Calendar.getInstance()
@@ -50,6 +53,10 @@ class Dialog : AppCompatActivity() {
         return formatter.format(calendar.time)
     }
 
+    /** Получить Дату в нужном формате
+     * @param character {String} - название персонажа
+     * @param imageNum {Int} - номер картинки в папке
+     */
     @Suppress("DEPRECATION")
     private fun changeTrainData(character: String, imageNum: Int) {
         val url = "file:///android_asset/${character}/$imageNum.gif"
@@ -70,6 +77,9 @@ class Dialog : AppCompatActivity() {
         Constants.DIALOG_MESSAGE_MAP[imageNum]?.let { textImage.setText(it) }
     }
 
+    /** Сделать вибрацию
+     * @param milliseconds {Long}
+     */
     @Suppress("DEPRECATION")
     private fun vibrate(milliseconds: Long) {
         val vibrator = this.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -88,6 +98,9 @@ class Dialog : AppCompatActivity() {
         }
     }
 
+    /** Показать счетчик времени тренировки
+     * @param periodTimer {Int}
+     */
     private fun startTimeTimer(periodTimer: Int) {
         val timer: TextView = findViewById(R.id.timer)
         timer.text = getTime(periodTimer)
@@ -110,6 +123,9 @@ class Dialog : AppCompatActivity() {
         timeTimer.start()
     }
 
+    /** Счетчик смены картинки
+     * @param periodTimer {Int}
+     */
     private fun startImageTimer(periodTimer: Int) {
         val maxImageInFolder = 6
         val character = Constants.CHARACTER_TYPE_MAP.keys.elementAt(settings?.character!!)
@@ -127,6 +143,7 @@ class Dialog : AppCompatActivity() {
         imageChangeTimer.start()
     }
 
+    /** Инициализация кнопки пропустить */
     private fun initHiddenBtn() {
         val hideBtn: Button = findViewById(R.id.hideBtn)
         hideBtn.setOnClickListener {

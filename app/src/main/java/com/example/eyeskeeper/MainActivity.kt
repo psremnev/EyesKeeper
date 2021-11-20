@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        /** Инициализируем кнопку включения */
         enableBtn = findViewById(R.id.enableSwitcher)
         serviceIsRun = isMyServiceRunning(KeeperService::class.java)
         enableBtn?.isChecked = serviceIsRun!!
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        /** Инициализируем кнопку настроек */
         val settingsBtn: Button = findViewById(R.id.settingsBtn)
         settingsBtn.setOnClickListener {
             it.startAnimation(animAlpha);
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             frg.show(supportFragmentManager, "settings")
         }
 
+        /** Инициализируем кнопку о программе */
         val aboutBtn: Button = findViewById(R.id.aboutBtn)
         aboutBtn.setOnClickListener {
             val frg: DialogFragment = About();
@@ -47,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /** Определяем запущен ли сервис или нет
+     * @param serviceClass {Class<*>}
+     */
     @Suppress("DEPRECATION")
     private fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
         val manager = getSystemService(ACTIVITY_SERVICE) as ActivityManager

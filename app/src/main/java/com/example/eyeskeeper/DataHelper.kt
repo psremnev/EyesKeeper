@@ -8,6 +8,7 @@ class DataHelper (baseContext: Context) {
     private val settingsPreferences: SharedPreferences = baseContext.getSharedPreferences(Companion.PREFERENCES_FILE_NAME, AppCompatActivity.MODE_PRIVATE)
     val defaultCharacter: Int = Constants.CHARACTER_TYPE_MAP[Constants.CharacterType.CLASSIC.value]!!
 
+    /** Инициализация настроек */
     private fun initSettings() {
         val preferenceEditor: SharedPreferences.Editor = settingsPreferences.edit()
         preferenceEditor.putInt(Constants.PERIOD, Constants.DEFAULT_PERIOD)
@@ -18,6 +19,7 @@ class DataHelper (baseContext: Context) {
         preferenceEditor.commit()
     }
 
+    /** Получить настройки */
     fun getSettings(): Constants.SettingsData {
         val period =
             settingsPreferences.getInt(Constants.PERIOD, Constants.DEFAULT_PERIOD)
@@ -49,6 +51,7 @@ class DataHelper (baseContext: Context) {
         }
     }
 
+    /** Сохранить настройки */
     fun saveSettings(params: Constants.SettingsData) {
         val editor: SharedPreferences.Editor = settingsPreferences.edit()
         if (params.period !== null) {
