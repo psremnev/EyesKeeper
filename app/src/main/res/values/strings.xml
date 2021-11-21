@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">Eyes Keeper</string>
-    <string name="Enable_Keeper">Включить / Отключить Keeper</string>
-    <string name="period">Перерыв, каждые</string>
-    <string name="breakTime">Время перерыва</string>
-    <string name="keeperInfo">Этот сервис будет работать в фоновом режиме. Вы можете закрыть приложение. Чтобы отсановить работу сервиса, выключите его</string>
-    <string name="skipDialog">Пропустить</string>
-    <string name="min">минут</string>
-    <string name="blink">Моргайте глазами</string>
-    <string name="circle_bacward">Двигайте глазами против часовой стрелки</string>
-    <string name="circle_forward">Двигайте глазами по часовой стрелки</string>
-    <string name="diagonal">Двигайте глазами по диагонали</string>
-    <string name="left_right">Двигайте глазами влево/вправо</string>
-    <string name="up_down">Двигайте глазами вверх/вниз</string>
-    <string name="vibrate">Вибрировать при смене упражнения</string>
-    <string name="sound">Звук при смене упражнения</string>
+    <string name="Enable_Keeper">Enable / Disable Keeper</string>
+    <string name="period">Break, every</string>
+    <string name="breakTime">Break time</string>
+    <string name="keeperInfo">This service will work in background mode You may close App. To stop the service, turn it off</string>
+    <string name="skipDialog">Skip</string>
+    <string name="blink">Blink your eyes</string>
+    <string name="circle_bacward">Move your eyes counterclockwise</string>
+    <string name="circle_forward">Move your eyes clockwise</string>
+    <string name="diagonal">Move your eyes diagonally</string>
+    <string name="left_right">Move your eyes left/right</string>
+    <string name="up_down">Move your eyes up/down</string>
+    <string name="vibrate">Vibrate when changing exercise</string>
+    <string name="sound">Sound when changing exercise</string>
+    <string name="min">min</string>
+    <string name="about">About the program</string>
     <integer name="maxTimeLength">2</integer>
-    <string name="about">О программе</string>
-    <string name="aboutText">С этой программой вы можете контролировать время провождения перед экраном своего мобильного устройства и дать глазам отдохнуть</string>
+    <string name="aboutText">With this program, you can control the time spent in front of the screen of your mobile device and give your eyes a rest</string>
 </resources>
