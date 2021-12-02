@@ -12,7 +12,6 @@
     <string name="left_right">Move your eyes left/right</string>
     <string name="up_down">Move your eyes up/down</string>
     <string name="vibrate">Vibrate when changing exercise</string>
-    <string name="sound">Sound when changing exercise</string>
     <string name="min">min</string>
     <string name="about">About the program</string>
     <integer name="maxTimeLength">2</integer>

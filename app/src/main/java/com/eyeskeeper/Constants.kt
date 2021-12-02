@@ -8,7 +8,6 @@ object Constants {
     const val PERIOD_TIME: String = "periodTime"
     const val CHARACTER: String = "character"
     const val VIBRATE: String = "vibrate"
-    const val SOUND: String = "sound"
     const val DEFAULT_PERIOD: Int = 15
     const val DEFAULT_PERIOD_TIME: Int = 1
     val CHARACTER_TYPE_MAP = mapOf<String, Int>(
@@ -60,6 +59,5 @@ object Constants {
         val periodTime: Int?
         val character: Int?
         val vibrate: Boolean?
-        val sound: Boolean?
     }
 }

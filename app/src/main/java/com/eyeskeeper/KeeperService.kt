@@ -48,7 +48,7 @@ class KeeperService: Service() {
     /** Получить таймер показа диалога тренировки */
     private fun getDialogTimer(): CountDownTimer {
         val period = (settings?.period!! * Constants.millisecondInSec).toLong()
-        return object: CountDownTimer(5000, period) {
+        return object: CountDownTimer(period, Constants.millisecondInSec.toLong()) {
             override fun onTick(millisUntilFinished: Long) {
                 return
             }

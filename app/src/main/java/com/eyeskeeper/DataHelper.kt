@@ -15,7 +15,6 @@ class DataHelper (baseContext: Context) {
         preferenceEditor.putInt(Constants.PERIOD_TIME, Constants.DEFAULT_PERIOD_TIME)
         preferenceEditor.putInt(Constants.CHARACTER, defaultCharacter)
         preferenceEditor.putBoolean(Constants.VIBRATE, false)
-        preferenceEditor.putBoolean(Constants.SOUND, false)
         preferenceEditor.commit()
     }
 
@@ -29,8 +28,6 @@ class DataHelper (baseContext: Context) {
             settingsPreferences.getInt(Constants.CHARACTER, defaultCharacter)
         val vibrate: Boolean =
             settingsPreferences.getBoolean(Constants.VIBRATE, false)
-        val sound: Boolean =
-            settingsPreferences.getBoolean(Constants.SOUND, false)
         if (period === 0 || periodTime === 0) {
             initSettings()
             return object: Constants.SettingsData  {
@@ -38,7 +35,6 @@ class DataHelper (baseContext: Context) {
                 override val periodTime: Int = Constants.DEFAULT_PERIOD_TIME
                 override val character: Int = defaultCharacter
                 override val vibrate: Boolean = false
-                override val sound: Boolean = false
             }
         } else {
             return object: Constants.SettingsData  {
@@ -46,7 +42,6 @@ class DataHelper (baseContext: Context) {
                 override val periodTime: Int = periodTime
                 override val character: Int = character
                 override val vibrate: Boolean = vibrate
-                override val sound: Boolean = sound
             }
         }
     }
@@ -65,9 +60,6 @@ class DataHelper (baseContext: Context) {
         }
         if (params.vibrate !== null) {
             editor.putBoolean(Constants.VIBRATE, params.vibrate!!)
-        }
-        if (params.sound !== null) {
-            editor.putBoolean(Constants.SOUND, params.sound!!)
         }
         editor.commit()
     }
