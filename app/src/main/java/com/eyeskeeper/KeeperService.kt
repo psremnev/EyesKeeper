@@ -11,6 +11,7 @@ import androidx.core.app.NotificationCompat.Builder
 import android.app.NotificationChannel
 import android.content.*
 import android.os.Build
+import androidx.annotation.RequiresApi
 
 class KeeperService: Service() {
     private var settings: Constants.SettingsData? = null
@@ -91,19 +92,20 @@ class KeeperService: Service() {
     }
 
     /** Старт сервиса в фоновом режиме */
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun startServiceForeground() {
         val notification: Notification
-        val notificationManager: NotificationManager
+        val notificationManager: NotificationManager = getSystemService(NotificationManager::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel("1", "Dialog", NotificationManager.IMPORTANCE_MIN)
             channel.description = ""
-            notificationManager = getSystemService(NotificationManager::class.java)
             notificationManager?.createNotificationChannel(channel)
         }
         val builder = Builder(this, "1")
 
         notification = builder?.build()
         startForeground(1, notification)
+        notificationManager.cancel(1);
     }
 
     /** Получить интент диалога тренировки */
