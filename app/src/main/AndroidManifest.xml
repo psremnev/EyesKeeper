@@ -12,6 +12,7 @@
         android:theme="@style/Theme.EyesKeeper">
         <activity
             android:name="com.eyeskeeper.Dialog"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:noHistory="true"
             android:launchMode="singleInstance"
