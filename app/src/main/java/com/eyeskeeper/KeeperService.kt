@@ -31,7 +31,6 @@ class KeeperService: Service() {
         val intentFilter = IntentFilter(Intent.ACTION_SCREEN_ON)
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF)
         registerReceiver(getScreenStateReceiver(), intentFilter)
-        startServiceForeground()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -99,11 +98,11 @@ class KeeperService: Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel("1", "Dialog", NotificationManager.IMPORTANCE_MIN)
             channel.description = ""
-            notificationManager?.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(channel)
         }
         val builder = Builder(this, "1")
 
-        notification = builder?.build()
+        notification = builder.build()
         startForeground(1, notification)
         notificationManager.cancel(1);
     }
@@ -111,7 +110,7 @@ class KeeperService: Service() {
     /** Получить интент диалога тренировки */
     private fun getIntentDialog(): Intent {
         val intent = Intent(applicationContext, Dialog::class.java)
-        intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         return intent
     }
 
