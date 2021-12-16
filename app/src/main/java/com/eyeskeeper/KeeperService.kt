@@ -33,8 +33,10 @@ class KeeperService: Service() {
         registerReceiver(getScreenStateReceiver(), intentFilter)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         timer?.start()
+        startKeepServiceForeground()
         return START_STICKY;
     }
 
@@ -92,7 +94,7 @@ class KeeperService: Service() {
 
     /** Старт сервиса в фоновом режиме */
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun startServiceForeground() {
+    private fun startKeepServiceForeground() {
         val notification: Notification
         val notificationManager: NotificationManager = getSystemService(NotificationManager::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -104,7 +106,6 @@ class KeeperService: Service() {
 
         notification = builder.build()
         startForeground(1, notification)
-        notificationManager.cancel(1);
     }
 
     /** Получить интент диалога тренировки */
