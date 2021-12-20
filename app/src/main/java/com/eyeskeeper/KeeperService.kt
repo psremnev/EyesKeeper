@@ -5,13 +5,9 @@ import android.os.CountDownTimer
 import android.os.IBinder
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
-import android.app.NotificationManager
 import android.app.Notification
 import androidx.core.app.NotificationCompat.Builder
-import android.app.NotificationChannel
 import android.content.*
-import android.os.Build
-import androidx.annotation.RequiresApi
 
 class KeeperService: Service() {
     private var settings: Constants.SettingsData? = null
@@ -33,7 +29,6 @@ class KeeperService: Service() {
         registerReceiver(getScreenStateReceiver(), intentFilter)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         timer?.start()
         startKeepServiceForeground()
@@ -93,17 +88,9 @@ class KeeperService: Service() {
     }
 
     /** Старт сервиса в фоновом режиме */
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun startKeepServiceForeground() {
         val notification: Notification
-        val notificationManager: NotificationManager = getSystemService(NotificationManager::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel("1", "Dialog", NotificationManager.IMPORTANCE_MIN)
-            channel.description = ""
-            notificationManager.createNotificationChannel(channel)
-        }
         val builder = Builder(this, "1")
-
         notification = builder.build()
         startForeground(1, notification)
     }

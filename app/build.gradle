@@ -10,8 +10,8 @@ android {
         applicationId 'com.eyeskeeper'
         minSdk 21
         targetSdk 31
-        versionCode 7
-        versionName "7"
+        versionCode 8
+        versionName "8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
